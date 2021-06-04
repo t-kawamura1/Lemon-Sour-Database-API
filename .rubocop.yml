@@ -1,0 +1,11 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+LineLength:
+  Max: 120
+
+AllCops:
+  Exclude:
+    - bin/*
+    - config/environments/*
+    - config/initializers/cors.rb
