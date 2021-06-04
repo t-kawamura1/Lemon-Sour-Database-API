@@ -177,6 +177,8 @@ GEM
       rubocop (>= 0.60.0)
     ruby-progressbar (1.11.0)
     spring (2.1.1)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -213,6 +215,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.0)
   rubocop-airbnb
   spring
+  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
 
 RUBY VERSION
