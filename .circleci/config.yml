@@ -48,7 +48,7 @@ jobs:
       - setup
       - run:
           name: Rubocop
-          command: bundle exec rubocop --require rubocop-airbnb
+          command: rubocop
 workflows:
   version: 2
   test_and_deploy:
