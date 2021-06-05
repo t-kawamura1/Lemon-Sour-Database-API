@@ -34,6 +34,9 @@ jobs:
     steps:
       - setup
       - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
           name: rails db:migrate
           command: bundle exec rails db:migrate
       - run:
