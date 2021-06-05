@@ -39,8 +39,16 @@ jobs:
           name: rails db:migrate
           command: bundle exec rails db:migrate
       - run:
-          name: rspec
+          name: RSpec
           command: bundle exec rspec
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.7.3
+    steps:
+      - setup
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
 
 workflows:
   version: 2

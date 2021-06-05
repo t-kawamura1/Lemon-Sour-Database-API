@@ -9,3 +9,5 @@ AllCops:
     - bin/*
     - config/environments/*
     - config/initializers/cors.rb
+    - config/application.rb
+    - spec/spec_helper.rb
