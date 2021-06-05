@@ -1,0 +1,52 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@1.1.2
+
+commands:
+  setup:
+    steps:
+      - checkout
+      - ruby/install-deps
+
+jobs:
+  build:
+    docker:
+      - circleci/ruby:2.7.3
+    steps:
+      - setup
+  test:
+    working_directory: ~/api
+    docker:
+      - image: circleci/ruby:2.7.3
+      - image: circleci/postgres
+        name: 'db'
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: api_test
+          POSTGRES_PASSWORD: ""
+    environment:
+      BUNDLE_JOBS: '4'
+      BUNDLE_RETRY: '3'
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      PGPASSWORD: ""
+      RAILS_ENV: test
+    steps:
+      - setup
+      - run:
+        name: rails db:migrate
+        command: bundle exec rails db:migrate
+      - run:
+        name: rspec
+        command: bundle exec rspec
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build
+      -test:
+        requires:
+          - build
+
