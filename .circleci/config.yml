@@ -12,22 +12,21 @@ commands:
 jobs:
   build:
     docker:
-      - circleci/ruby:2.7.3
+      - image: circleci/ruby:2.7.3
     steps:
       - setup
   test:
-    working_directory: ~/api
     docker:
       - image: circleci/ruby:2.7.3
       - image: circleci/postgres
-        name: 'db'
+        name: "db"
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: api_test
           POSTGRES_PASSWORD: ""
     environment:
-      BUNDLE_JOBS: '4'
-      BUNDLE_RETRY: '3'
+      BUNDLE_JOBS: "4"
+      BUNDLE_RETRY: "3"
       PGHOST: 127.0.0.1
       PGUSER: postgres
       PGPASSWORD: ""
@@ -35,11 +34,11 @@ jobs:
     steps:
       - setup
       - run:
-        name: rails db:migrate
-        command: bundle exec rails db:migrate
+          name: rails db:migrate
+          command: bundle exec rails db:migrate
       - run:
-        name: rspec
-        command: bundle exec rspec
+          name: rspec
+          command: bundle exec rspec
 
 workflows:
   version: 2
