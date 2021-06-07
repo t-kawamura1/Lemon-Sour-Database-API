@@ -38,6 +38,11 @@ jobs:
             - rails-demo-{{ checksum "Gemfile.lock" }}
             - rails-demo-
       - run:
+          name: Bundler install
+          command: |
+            gem update --system
+            gem install bundler -v 2.1.4
+      - run:
           name: Install dependencies
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
       - save_cache:
