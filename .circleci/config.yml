@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.1.3
+  heroku: circleci/heroku@1.2.6
 
 commands:
   setup:
@@ -15,6 +16,7 @@ jobs:
       - image: circleci/ruby:2.7.3
     steps:
       - setup
+
   test:
     docker:
       - image: circleci/ruby:2.7.3
@@ -42,6 +44,17 @@ jobs:
           name: RSpec
           command: bundle exec rspec
 
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          command: >
+            echo "The command above installs Heroku, the command below deploys.
+            What you do inbetween is up to you!"
+      - heroku/deploy-via-git
+
 workflows:
   version: 2
   test_and_deploy:
@@ -50,4 +63,7 @@ workflows:
       - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
 
