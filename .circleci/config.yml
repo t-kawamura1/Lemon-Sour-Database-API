@@ -46,12 +46,8 @@ jobs:
       - image: circleci/ruby:2.7.3
     steps:
       - setup
-      - run:
-          name: bundle install
-          command: bundle install
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop --require rubocop-airbnb
+      - ruby/rubocop-check
+
 workflows:
   version: 2
   test_and_deploy:
