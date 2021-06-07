@@ -47,8 +47,11 @@ jobs:
     steps:
       - setup
       - run:
+          name: bundle install
+          command: bundle install
+      - run:
           name: Rubocop
-          command: rubocop
+          command: bundle exec rubocop --require rubocop-airbnb
 workflows:
   version: 2
   test_and_deploy:
