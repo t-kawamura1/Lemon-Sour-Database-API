@@ -5,6 +5,7 @@ LineLength:
   Max: 120
 
 AllCops:
+  # ファイルの初期状態で1行の文字数制限を超えるもの、rubocopに従わない方がコードが読みやすくなるものが除外対象
   Exclude:
     - bin/*
     - config/environments/*
