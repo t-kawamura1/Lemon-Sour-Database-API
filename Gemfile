@@ -17,6 +17,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rubocop-airbnb'
+  gem 'bullet'
 end
 
 group :development do
@@ -24,5 +25,4 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
-  gem 'bullet'
 end
