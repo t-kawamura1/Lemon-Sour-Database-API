@@ -41,7 +41,7 @@ RSpec.describe "LemonSours API", type: :request do
       get "/api/v1/lemon_sours"
       json = JSON.parse(response.body)
       expect([json["data"][0]["name"], json["data"][1]["name"], json["data"][2]["name"]]).to eq
-        ["#{today_updated_sour.name}", "#{yesterday_updated_sour.name}", "#{oldest_updated_sour.name}"]
+      ["#{today_updated_sour.name}", "#{yesterday_updated_sour.name}", "#{oldest_updated_sour.name}"]
     end
   end
 end
