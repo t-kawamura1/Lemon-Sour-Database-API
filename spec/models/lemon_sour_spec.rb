@@ -7,6 +7,6 @@ RSpec.describe LemonSour, type: :model do
   end
   it "商品名が無ければ無効" do
     noname_lemon_sour = LemonSour.new(name: "")
-    expect(noname_lemon_sour).to_not be_valid
+    expect(noname_lemon_sour).not_to be_valid
   end
 end
