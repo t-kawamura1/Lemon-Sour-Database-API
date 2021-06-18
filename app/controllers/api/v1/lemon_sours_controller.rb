@@ -16,6 +16,21 @@ class Api::V1::LemonSoursController < ApplicationController
     }
   end
 
+  def create
+    lemon_sour = LemonSour.new(lemon_sour_params)
+    if lemon_sour.save
+      render json: {
+        status: 200,
+        data: lemon_sour,
+      }
+    else
+      render json: {
+        status: 'ERROR',
+        data: lemon_sour.error,
+      }
+    end
+  end
+
   private
 
   def set_lemon_sour
@@ -32,6 +47,7 @@ class Api::V1::LemonSoursController < ApplicationController
       :fruit_juice,
       :zero_sugar,
       :zero_sweetener,
+      :sour_image,
     )
   end
 end
