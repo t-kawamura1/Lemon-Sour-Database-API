@@ -1,5 +1,5 @@
 10.times do |n|
-  name = Faker::Food.sushi
+  name = Faker::Beer.name
   manufacturer = Faker::Company.name
   calories = Faker::Number.number(digits: 2)
   alcohol_content = Faker::Number.decimal(l_digits: 1)
@@ -14,5 +14,6 @@
     fruit_juice: fruit_juice,
     zero_sugar: true,
     zero_sweetener: true,
+    sour_image: File.open("./public/development/ls_sample.png"),
   )
 end
