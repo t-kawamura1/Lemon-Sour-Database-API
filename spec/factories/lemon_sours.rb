@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :lemon_sour do
     name { "氷結 シチリア産レモン" }
     manufacturer { "キリン" }
-    image { "MyImage" }
+    sour_image { "MyImage" }
     calories { 45 }
     alcohol_content { 5 }
     pure_alcohol { 4 }
