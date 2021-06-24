@@ -10,6 +10,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 gem 'hirb'
 gem 'hirb-unicode-steakknife'
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

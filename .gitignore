@@ -22,3 +22,5 @@
 
 /.ash_history
 /.irb_history
+
+/.env

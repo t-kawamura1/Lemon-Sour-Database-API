@@ -5,10 +5,11 @@ LineLength:
   Max: 120
 
 AllCops:
-  # ファイルの初期状態で1行の文字数制限を超えるもの、rubocopに従わない方がコードが読みやすくなるものが除外対象
+  # ファイルの初期状態・自動生成状態で違反するもの、rubocopに従わない方がコードが読みやすくなるものが除外対象
   Exclude:
     - bin/*
     - config/environments/*
     - config/initializers/cors.rb
     - config/application.rb
     - spec/spec_helper.rb
+    - db/schema.rb
