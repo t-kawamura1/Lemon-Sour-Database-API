@@ -7,7 +7,7 @@ RSpec.describe "LemonSours API", type: :request do
       get "/api/v1/lemon_sours/#{lemon_sour.id}"
       json = JSON.parse(response.body)
       expect(response.status).to eq 200
-      expect(json["data"]["name"]).to eq(lemon_sour.name)
+      expect(json["name"]).to eq(lemon_sour.name)
     end
   end
 
@@ -24,19 +24,23 @@ RSpec.describe "LemonSours API", type: :request do
 
     it "リクエストが成功する" do
       expect(response.status).to eq 200
-      expect(@json["data"].length).to eq 3
+      expect(@json.length).to eq 3
     end
 
     it "データが更新された降順で取得される" do
       expect([
-        @json["data"][0]["name"],
-        @json["data"][1]["name"],
-        @json["data"][2]["name"],
+        @json[0]["name"],
+        @json[1]["name"],
+        @json[2]["name"],
       ]).to eq [
         "#{today_updated_sour.name}",
         "#{yesterday_updated_sour.name}",
         "#{oldest_updated_sour.name}",
       ]
+    end
+
+    context "あとで書く" do
+
     end
   end
 end

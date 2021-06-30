@@ -9,7 +9,9 @@ class LemonSour < ApplicationRecord
   }
 
   scope :for_manufacturer, ->(manufacturer_name) {
-    if manufacturer_name == "すべて"
+    if manufacturer_name == ""
+      return
+    elsif manufacturer_name == "すべて"
       return
     else
       where("manufacturer = ?", manufacturer_name)
@@ -17,8 +19,10 @@ class LemonSour < ApplicationRecord
   }
   scope :for_ingredient, ->(ingredient_type) {
     case ingredient_type
+    when ""
+      return
     when "ー"
-      where(zero_sugar: false, zero_sweetener: false)
+      return
     when "糖類ゼロ"
       where(zero_sugar: true)
     when "甘味料ゼロ"
@@ -27,6 +31,8 @@ class LemonSour < ApplicationRecord
   }
   scope :for_order, ->(order_type) {
     case order_type
+    when ""
+      order(updated_at: :desc)
     when "新着順"
       order(updated_at: :desc)
     when "度数の高い順"
