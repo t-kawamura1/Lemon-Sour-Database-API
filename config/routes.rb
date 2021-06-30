@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :lemon_sours, only: [:show, :index, :create] do
         collection do
-          get 'search_by_manufacturer'
+          get 'search_by'
         end
       end
     end
