@@ -2,20 +2,20 @@ class LemonSour < ApplicationRecord
   mount_uploader :sour_image, SourImageUploader
   validates :name, presence: true
 
-  scope :filtered_by, ->(search_params) {
-    filterd_by_manufacturer(search_params[:manufacturer]).
-      filterd_by_ingredient(search_params[:ingredient]).
-      filterd_by_order(search_params[:order])
+  scope :diplayed_based_on, ->(search_params) {
+    for_manufacturer(search_params[:manufacturer]).
+      for_ingredient(search_params[:ingredient]).
+      for_order(search_params[:order])
   }
 
-  scope :filterd_by_manufacturer, ->(manufacturer_name) {
+  scope :for_manufacturer, ->(manufacturer_name) {
     if manufacturer_name == "すべて"
       return
     else
       where("manufacturer = ?", manufacturer_name)
     end
   }
-  scope :filterd_by_ingredient, ->(ingredient_type) {
+  scope :for_ingredient, ->(ingredient_type) {
     case ingredient_type
     when "ー"
       where(zero_sugar: false, zero_sweetener: false)
@@ -25,7 +25,7 @@ class LemonSour < ApplicationRecord
       where(zero_sweetener: true)
     end
   }
-  scope :filterd_by_order, ->(order_type) {
+  scope :for_order, ->(order_type) {
     case order_type
     when "新着順"
       order(updated_at: :desc)
