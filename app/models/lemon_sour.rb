@@ -2,7 +2,7 @@ class LemonSour < ApplicationRecord
   mount_uploader :sour_image, SourImageUploader
   validates :name, presence: true
 
-  scope :diplayed_based_on, ->(search_params) {
+  scope :displayed_based_on, ->(search_params) {
     for_manufacturer(search_params[:manufacturer]).
       for_ingredient(search_params[:ingredient]).
       for_order(search_params[:order])
@@ -21,7 +21,7 @@ class LemonSour < ApplicationRecord
     case ingredient_type
     when ""
       return
-    when "ー"
+    when "すべて"
       return
     when "糖類ゼロ"
       where(zero_sugar: true)

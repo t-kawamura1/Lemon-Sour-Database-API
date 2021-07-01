@@ -26,7 +26,7 @@ class Api::V1::LemonSoursController < ApplicationController
   # end
 
   def search_by
-    lemon_sours = LemonSour.diplayed_based_on(search_sours_params)
+    lemon_sours = LemonSour.displayed_based_on(search_sours_params)
     render json: lemon_sours, status: 200
   end
 
