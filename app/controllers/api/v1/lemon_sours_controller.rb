@@ -2,33 +2,32 @@ class Api::V1::LemonSoursController < ApplicationController
   before_action :set_lemon_sour, only: [:show]
 
   def show
-    render json: {
-      status: 200,
-      data: @lemon_sour,
-    }
+    render json: @lemon_sour, status: :ok
   end
 
   def index
-    lemon_sours = LemonSour.order(updated_at: :desc)
-    render json: {
-      status: 200,
-      data: lemon_sours,
-    }
+    @lemon_sours = LemonSour.order(updated_at: :desc)
+    render json: @lemon_sours, status: :ok
   end
 
-  def create
-    lemon_sour = LemonSour.new(lemon_sour_params)
-    if lemon_sour.save
-      render json: {
-        status: 200,
-        data: lemon_sour,
-      }
-    else
-      render json: {
-        status: 'ERROR',
-        data: lemon_sour.error,
-      }
-    end
+  # def create
+  #   lemon_sour = LemonSour.new(lemon_sour_params)
+  #   if lemon_sour.save
+  #     render json: {
+  #       status: 200,
+  #       data: lemon_sour,
+  #     }
+  #   else
+  #     render json: {
+  #       status: 'ERROR',
+  #       data: lemon_sour.error,
+  #     }
+  #   end
+  # end
+
+  def search_by
+    lemon_sours = LemonSour.displayed_based_on(search_sours_params)
+    render json: lemon_sours, status: 200
   end
 
   private
@@ -48,6 +47,14 @@ class Api::V1::LemonSoursController < ApplicationController
       :zero_sugar,
       :zero_sweetener,
       :sour_image,
+    )
+  end
+
+  def search_sours_params
+    params.permit(
+      :manufacturer,
+      :ingredient,
+      :order,
     )
   end
 end

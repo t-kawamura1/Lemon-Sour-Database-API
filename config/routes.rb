@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :lemon_sours, only: [:show, :index, :create]
+      resources :lemon_sours, only: [:show, :index, :create] do
+        collection do
+          get 'search_by'
+        end
+      end
     end
   end
 end
