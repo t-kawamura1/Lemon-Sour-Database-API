@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  # ユーザー名以外はdevise-token-authのバリデーションを利用する。
+  validates :name, presence: true, uniqueness: true
 end
