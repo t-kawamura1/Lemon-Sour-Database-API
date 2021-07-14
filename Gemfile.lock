@@ -121,10 +121,6 @@ GEM
     formatador (0.3.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    hirb (0.7.3)
-    hirb-unicode-steakknife (0.0.9)
-      hirb (~> 0.5)
-      unicode-display_width (~> 1.1)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -283,8 +279,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog-aws
-  hirb
-  hirb-unicode-steakknife
   listen (~> 3.2)
   mini_magick
   pg (>= 0.18, < 2.0)
