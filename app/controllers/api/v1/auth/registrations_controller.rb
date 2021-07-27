@@ -2,7 +2,6 @@ module Api
   module V1
     module Auth
       class RegistrationsController < DeviseTokenAuth::RegistrationsController
-
         protected
 
         # deviseのバリデーションによるエラーを吐かないようにしたかったが、Userモデルのvalidatableを削除し、
@@ -29,4 +28,3 @@ module Api
     end
   end
 end
-

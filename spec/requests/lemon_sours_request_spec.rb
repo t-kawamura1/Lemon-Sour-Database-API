@@ -14,12 +14,15 @@ RSpec.describe "LemonSours API", type: :request do
   end
 
   context "GET /lemon_sour/:id" do
-    it "１件のレモンサワーを取得する" do
-      get "/api/v1/lemon_sours/#{hyoketu.id}"
-      json = JSON.parse(response.body)
-      expect(response.status).to eq 200
-      expect(json["name"]).to eq(hyoketu.name)
+    context "登録されているレモンサワーのidであれば" do
+      it "１件のレモンサワーを取得する" do
+        get "/api/v1/lemon_sours/#{hyoketu.id}"
+        json = JSON.parse(response.body)
+        expect(response.status).to eq 200
+        expect(json["name"]).to eq(hyoketu.name)
+      end
     end
+    # 登録されていないidの場合は、Rails側で例外を吐くのでテストしない（できない）。
   end
 
   context "GET /lemon_sours" do
@@ -47,9 +50,8 @@ RSpec.describe "LemonSours API", type: :request do
 
     context "GET /lemon_sours/search_by" do
       it "クエリパラメータの指定のとおりにデータが取得される" do
-        # manufacturer="キリン", ingredient="すべて", order="度数の高い順"をエンコードしている
-        get "/api/v1/lemon_sours/search_by?manufacturer=%E3%82%AD%E3%83%AA%E3%83%B3&
-          ingredient=%E3%81%99%E3%81%B9%E3%81%A6&order=%E5%BA%A6%E6%95%B0%E3%81%AE%E9%AB%98%E3%81%84%E9%A0%86"
+        params = { manufacturer: "キリン", ingredient: "すべて", order: "度数の高い順" }
+        get("/api/v1/lemon_sours/search_by", params: params)
         json = JSON.parse(response.body)
         expect(response.status).to eq 200
         expect(json.length).to eq 2
