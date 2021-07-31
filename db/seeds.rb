@@ -4,7 +4,7 @@
   pure_alcohol = Faker::Number.decimal(l_digits: 2)
   fruit_juice = Faker::Number.decimal(l_digits: 2)
   LemonSour.create!(
-    name: "キリン・ザ・ストロング　麒麟特性レモンサワー",
+    name: "キリン・ザ・ストロング 麒麟特性レモンサワー",
     manufacturer: "キリン",
     calories: calories,
     alcohol_content: alcohol_content,
@@ -19,7 +19,7 @@
   pure_alcohol = Faker::Number.decimal(l_digits: 2)
   fruit_juice = Faker::Number.decimal(l_digits: 2)
   LemonSour.create!(
-    name: "こだわり酒場のレモンサワー　追い足しレモン",
+    name: "こだわり酒場のレモンサワー 追い足しレモン",
     manufacturer: "サントリー",
     calories: calories,
     alcohol_content: alcohol_content,
@@ -34,7 +34,7 @@
   pure_alcohol = Faker::Number.decimal(l_digits: 2)
   fruit_juice = Faker::Number.decimal(l_digits: 2)
   LemonSour.create!(
-    name: "ザ・レモンクラフト　地中海レモン",
+    name: "ザ・レモンクラフト 地中海レモン",
     manufacturer: "アサヒ",
     calories: calories,
     alcohol_content: alcohol_content,
@@ -42,6 +42,6 @@
     fruit_juice: fruit_juice,
     zero_sugar: true,
     zero_sweetener: false,
-    sour_image: File.open("./public/development/ls_sample_asahi_craft_tityukai.jpeg"),
+    sour_image: File.open("./public/development/ls_sample_asahi_craft_tityukai.jpg"),
   )
 end
