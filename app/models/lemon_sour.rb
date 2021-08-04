@@ -1,5 +1,8 @@
 class LemonSour < ApplicationRecord
+  has_many :drinking_records
+
   mount_uploader :sour_image, SourImageUploader
+
   validates :name, presence: true
 
   scope :displayed_based_on, ->(search_params) {

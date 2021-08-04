@@ -33,6 +33,10 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      drinking_record:
+        drinking_date: 飲んだ日付
+        pure_alcohol_amount: 純アルコール量
+        drinking_amount: 飲んだ量
   date:
     abbr_day_names:
     - 日

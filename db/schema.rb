@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_081435) do
+ActiveRecord::Schema.define(version: 2021_08_03_042050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drinking_records", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lemon_sour_id"
+    t.date "drinking_date", null: false
+    t.float "pure_alcohol_amount", null: false
+    t.integer "drinking_amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lemon_sour_id"], name: "index_drinking_records_on_lemon_sour_id"
+    t.index ["user_id"], name: "index_drinking_records_on_user_id"
+  end
 
   create_table "lemon_sours", force: :cascade do |t|
     t.string "name", null: false
@@ -52,4 +64,6 @@ ActiveRecord::Schema.define(version: 2021_07_12_081435) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "drinking_records", "lemon_sours"
+  add_foreign_key "drinking_records", "users"
 end

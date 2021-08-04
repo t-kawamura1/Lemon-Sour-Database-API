@@ -20,7 +20,7 @@ class Api::V1::LemonSoursController < ApplicationController
   #   else
   #     render json: {
   #       status: 'ERROR',
-  #       data: lemon_sour.error,
+  #       data: lemon_sour.errors,
   #     }
   #   end
   # end
