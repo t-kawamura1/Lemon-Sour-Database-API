@@ -4,12 +4,12 @@ Rails.application.routes.draw do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/v1/auth/registrations',
       }
-      resources :lemon_sours, only: %i[show index] do
+      resources :lemon_sours, only: %i(show index) do
         collection do
           get 'search_by'
         end
       end
-      resources :drinking_records, only: %i[index create destroy]
+      resources :drinking_records, only: %i(index create destroy)
     end
   end
 end

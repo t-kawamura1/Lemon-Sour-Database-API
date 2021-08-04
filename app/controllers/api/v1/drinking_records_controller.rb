@@ -1,15 +1,11 @@
 class Api::V1::DrinkingRecordsController < ApplicationController
   before_action :authenticate_api_v1_user!
-  before_action :set_drinking_record, only: %i[destroy]
+  # before_action :set_drinking_record, only: %i[destroy]
 
-  # def show
-  #   render json: drinking_record, status: :ok
+  # def index
+  #   @drinking_records = current_api_v1_user.drinking_records.order(drinking_date: :asc)
+  #   render json: @drinking_records, status: :ok
   # end
-
-  def index
-    @drinking_records = current_user.drinking_records.order(drinking_date: :asc)
-    render json: @drinking_records, status: :ok
-  end
 
   def create
     @drinking_record = current_api_v1_user.drinking_records.build(drinking_record_params)
@@ -35,15 +31,15 @@ class Api::V1::DrinkingRecordsController < ApplicationController
   #   end
   # end
 
-  def destroy
-    @drinking_record.destroy
-    render json: { status: :ok }
-  end
+  # def destroy
+  #   @drinking_record.destroy
+  #   render json: { status: :ok }
+  # end
 
   private
 
   def set_drinking_record
-    @drinking_record = current_user.drinking_records.find(drinkig_date: params[:drinking_date])
+    @drinking_record = current_api_v1_user.drinking_records.find(drinkig_date: params[:drinking_date])
   end
 
   def drinking_record_params

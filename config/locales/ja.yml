@@ -1,5 +1,8 @@
 ---
 ja:
+  devise:
+    failure:
+      unauthenticated: 認証資格が不足しています
   activerecord:
     errors:
       messages:
@@ -36,7 +39,7 @@ ja:
       drinking_record:
         drinking_date: 飲んだ日付
         pure_alcohol_amount: 純アルコール量
-        drinking_amount: 飲んだ量
+        drinking_amount: 飲酒量
   date:
     abbr_day_names:
     - 日
