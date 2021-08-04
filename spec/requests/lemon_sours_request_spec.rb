@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "LemonSours API", type: :request do
+RSpec.describe "Api::v1::LemonSours", type: :request do
   now = Time.now
   let!(:hyoketu) { create(:lemon_sour, updated_at: "#{now}") }
   let!(:hyoketu_strong) { create(:lemon_sour, name: "氷結ストロング", alcohol_content: 9, updated_at: "#{now.yesterday}") }
