@@ -9,7 +9,12 @@ Rails.application.routes.draw do
           get 'search_by'
         end
       end
-      resources :drinking_records, only: %i(index create destroy)
+      resources :drinking_records, only: %i(show create) do
+        collection do
+          get 'amounts_by_month'
+          delete 'delete'
+        end
+      end
     end
   end
 end
