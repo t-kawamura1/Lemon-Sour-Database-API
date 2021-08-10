@@ -1,14 +1,18 @@
 class Api::V1::DrinkingRecordsController < ApplicationController
   before_action :authenticate_api_v1_user!
 
+  SAFETY_AMOUNT = 20
+  WARNING_AMOUNT = 40
+  MAX_COUNT_TO_DISPLAY = 5
+
   def show
     get_drinking_records_by_date_and_amount_of_pure_alcohol
-    @records_of_dates_and_sour_name = current_api_v1_user.drinking_records.dates_and_sour_name
+    @records_of_sour_name = current_api_v1_user.drinking_records.count_sour_name(MAX_COUNT_TO_DISPLAY)
     render json: [
       @records_of_safety,
       @records_of_warning,
       @records_of_dagerous,
-      @records_of_dates_and_sour_name,
+      @records_of_sour_name,
     ],
            status: :ok
   end
@@ -43,9 +47,6 @@ class Api::V1::DrinkingRecordsController < ApplicationController
   end
 
   private
-
-  SAFETY_AMOUNT = 20
-  WARNING_AMOUNT = 40
 
   def get_drinking_records_by_date_and_amount_of_pure_alcohol
     @records_of_safety = current_api_v1_user.drinking_records.pure_alcohol_amount_less_than(SAFETY_AMOUNT)

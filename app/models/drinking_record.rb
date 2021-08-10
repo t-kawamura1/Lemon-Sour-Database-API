@@ -28,10 +28,13 @@ class DrinkingRecord < ApplicationRecord
       having("? <= SUM(pure_alcohol_amount)", amount)
   }
 
-  scope :dates_and_sour_name, -> {
+  scope :count_sour_name, ->(max_count) {
     left_outer_joins(:lemon_sour).
-      select("drinking_date, name").
-      order(drinking_date: :asc)
+      where("name != ?", "").
+      group(:name).
+      select("name, COUNT(name) as name_count").
+      order(count: :desc).
+      limit(max_count)
   }
 
   scope :sum_amouts_by_year_month, -> {
