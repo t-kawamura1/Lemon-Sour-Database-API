@@ -1,5 +1,5 @@
 class Api::V1::LemonSoursController < ApplicationController
-  before_action :set_lemon_sour, only: [:show]
+  before_action :set_lemon_sour, only: %i(show)
 
   def show
     render json: @lemon_sour, status: :ok

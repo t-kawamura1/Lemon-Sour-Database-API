@@ -21,7 +21,7 @@ RSpec.describe LemonSour, type: :model do
     let!(:zeitakusibori) { create(:lemon_sour, :zero_sweetener_sour, updated_at: "#{now.ago(4.days)}") }
     let!(:lemon_sours) { [hyoketu, strongzero, zeitakusibori] }
 
-    context ":for_manufacturer" do
+    context ":for_manufacturerの場合" do
       it "引数が空であれば、何も処理しない" do
         expect(LemonSour.for_manufacturer("")).to eq lemon_sours
       end
@@ -36,7 +36,7 @@ RSpec.describe LemonSour, type: :model do
       end
     end
 
-    context ":for_ingredient" do
+    context ":for_ingredientの場合" do
       it "引数が空であれば、何も処理しない" do
         expect(LemonSour.for_ingredient("")).to eq lemon_sours
       end
@@ -51,7 +51,7 @@ RSpec.describe LemonSour, type: :model do
       end
     end
 
-    context ":for_order" do
+    context ":for_orderの場合" do
       it "引数が空または「新着順」のとき、データが更新された降順で取得する" do
         expect(LemonSour.for_order("")).to eq [hyoketu, strongzero, zeitakusibori]
         expect(LemonSour.for_order("新着順")).to eq [hyoketu, strongzero, zeitakusibori]
@@ -67,7 +67,7 @@ RSpec.describe LemonSour, type: :model do
       end
     end
 
-    context ":displayed_based_on" do
+    context ":displayed_based_onの場合" do
       it "指定されたparamsの通りデータを取得する" do
         hyoketu_strong = create(:lemon_sour, name: "氷結ストロング", alcohol_content: 9)
         search_params = { manufacturer: "キリン", ingredient: "すべて", order: "度数の高い順" }
