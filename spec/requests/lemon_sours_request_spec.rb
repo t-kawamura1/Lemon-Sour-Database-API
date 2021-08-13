@@ -49,13 +49,25 @@ RSpec.describe "Api::v1::LemonSours", type: :request do
     end
 
     context "GET /lemon_sours/search_by" do
-      it "クエリパラメータの指定のとおりにデータが取得される" do
-        params = { manufacturer: "キリン", ingredient: "すべて", order: "度数の高い順" }
-        get("/api/v1/lemon_sours/search_by", params: params)
-        json = JSON.parse(response.body)
-        expect(response.status).to eq 200
-        expect(json.length).to eq 2
-        expect([json[0]["name"], json[1]["name"]]).to eq [hyoketu_strong.name, hyoketu.name]
+      context "指定されたクエリパラメータに該当するデータがあれば、" do
+        it "指定のとおりにデータが取得される" do
+          params = { manufacturer: "キリン", ingredient: "すべて", order: "度数の高い順" }
+          get("/api/v1/lemon_sours/search_by", params: params)
+          json = JSON.parse(response.body)
+          expect(response.status).to eq 200
+          expect(json.length).to eq 2
+          expect([json[0]["name"], json[1]["name"]]).to eq [hyoketu_strong.name, hyoketu.name]
+        end
+      end
+
+      context "指定されたクエリパラメータに該当するデータがなければ、" do
+        it "リクエストに失敗する" do
+          params = { manufacturer: "宝酒造", ingredient: "すべて", order: "度数の高い順" }
+          get("/api/v1/lemon_sours/search_by", params: params)
+          json = JSON.parse(response.body)
+          expect(response.status).to eq 404
+          expect(json["error_message"]).to eq "該当するデータがありません"
+        end
       end
     end
   end

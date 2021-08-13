@@ -27,7 +27,11 @@ class Api::V1::LemonSoursController < ApplicationController
 
   def search_by
     lemon_sours = LemonSour.displayed_based_on(search_sours_params)
-    render json: lemon_sours, status: :ok
+    if lemon_sours != []
+      render json: lemon_sours, status: :ok
+    else
+      render json: { error_message: "該当するデータがありません" }, status: :not_found
+    end
   end
 
   private
