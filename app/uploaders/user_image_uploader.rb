@@ -1,4 +1,4 @@
-class SourImageUploader < CarrierWave::Uploader::Base
+class UserImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
@@ -6,6 +6,7 @@ class SourImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
+  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -22,7 +23,7 @@ class SourImageUploader < CarrierWave::Uploader::Base
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  #   "/images/fallback/" + [version_name, "default.jpg"].compact.join('_')
   # end
 
   # Process files as they are uploaded:
@@ -50,12 +51,16 @@ class SourImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "sour_#{mounted_as}_#{timestamp}.#{file.extension}" if original_filename
+    "user_#{mounted_as}_#{timestamp}.#{file.extension}" if original_filename
   end
 
   # DBとストレージの保存時間のズレをなくすため
   def timestamp
     var = "@#{mounted_as}_timestamp"
     model.instance_variable_get(var) || model.instance_variable_set(var, Time.now.to_i)
+  end
+
+  def size_range
+    0..5.megabytes
   end
 end
