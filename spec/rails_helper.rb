@@ -68,4 +68,10 @@ RSpec.configure do |config|
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
   Faker::Config.locale = :ja
+
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads_#{Rails.env}/"])
+    end
+  end
 end

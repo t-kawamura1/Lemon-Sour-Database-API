@@ -5,16 +5,20 @@ class UserImageUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [180, 180]
 
   # Choose what kind of storage to use for this uploader:
-  storage :fog
+  if Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    if model.present?
-      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    if Rails.env.test?
+      "uploads_#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     else
-      'uploads/content_image/'
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     end
   end
 
@@ -51,7 +55,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "user_#{mounted_as}_#{timestamp}.#{file.extension}" if original_filename
+    "#{mounted_as}_#{timestamp}.#{file.extension}" if original_filename
   end
 
   # DBとストレージの保存時間のズレをなくすため

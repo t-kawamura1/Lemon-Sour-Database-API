@@ -50,7 +50,7 @@ class SourImageUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "sour_#{mounted_as}_#{timestamp}.#{file.extension}" if original_filename
+    "#{mounted_as}_#{timestamp}.#{file.extension}" if original_filename
   end
 
   # DBとストレージの保存時間のズレをなくすため

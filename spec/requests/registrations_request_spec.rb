@@ -19,6 +19,18 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
     context "リクエストヘッダーに必要な項目があり、かつ" do
       let(:headers) { current_user.create_new_auth_token }
 
+      context "ユーザー画像が入力されているとき" do
+        it "ユーザーアカウントの更新が成功する" do
+          params = { user_image: fixture_file_upload("spec/fixtures/test_user.jpg", 'image/jpg') }
+          result_url = { "url" => a_kind_of(String) }
+          put("/api/v1/auth", params: params, headers: headers)
+          json = JSON.parse(response.body)
+          p json
+          expect(response.status).to eq 200
+          expect(json["data"]["user_image"]).to match result_url
+        end
+      end
+
       context "ユーザー名、メールアドレス、現在のパスワードが入力されているとき" do
         it "ユーザーアカウントの更新が成功する" do
           params = { name: "ガオガイガー", email: "king_of_braves@gagaga.org", current_password: current_user.password }
