@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :users
-      resources :drinking_records
-      resources :lemon_sours
+      resources :users, only: %i(index show new create edit update destroy)
+      resources :drinking_records, only: %i(index show new create edit update destroy)
+      resources :lemon_sours, only: %i(index show new create edit update destroy)
 
       root to: "users#index"
     end
