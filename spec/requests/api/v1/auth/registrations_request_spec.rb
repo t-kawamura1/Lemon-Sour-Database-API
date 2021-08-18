@@ -25,7 +25,6 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
           result_url = { "url" => a_kind_of(String) }
           put("/api/v1/auth", params: params, headers: headers)
           json = JSON.parse(response.body)
-          p json
           expect(response.status).to eq 200
           expect(json["data"]["user_image"]).to match result_url
         end

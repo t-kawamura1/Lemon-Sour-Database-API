@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Auth::Registrations", type: :request do
+RSpec.describe "Api::V1::Auth::Sessions", type: :request do
   let(:current_user) { create(:user) }
 
   describe "POST /auth/sign_in" do
