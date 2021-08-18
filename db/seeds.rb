@@ -45,3 +45,17 @@
     sour_image: File.open("./public/development/ls_sample_asahi_craft_tityukai.jpg"),
   )
 end
+
+Administrator.create!(
+  name: "レモンサワーの神",
+  email: "admin@sample.com",
+  password: "godoflemonsour",
+)
+
+3.times do |n|
+  User.create!(
+    name: "tk#{n+1}",
+    email: "tk#{n+1}@sample.com",
+    password: "password#{n+1}",
+  )
+end

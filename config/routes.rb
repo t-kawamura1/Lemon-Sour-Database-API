@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
   namespace :admin do
-      resources :users, only: %i(index show new create edit update destroy)
-      resources :drinking_records, only: %i(index show new create edit update destroy)
-      resources :lemon_sours, only: %i(index show new create edit update destroy)
+    resources :users, only: %i(index show new create edit update destroy)
+    resources :drinking_records, only: %i(index show new create edit update destroy)
+    resources :lemon_sours, only: %i(index show new create edit update destroy)
 
-      root to: "users#index"
-    end
+    root to: "pages#login"
+  end
+
+  mount_devise_token_auth_for 'Administrator', at: 'administrator', controllers: {
+    sessions: 'administrator/sessions',
+  }
+  # as :administrator do
+  #   post 'administrator/sign_in', to: 'sessions#create'
+  # end
+
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
