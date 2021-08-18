@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>管理者ログイン</title>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <div>
+      <h2>管理者ログイン</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+        <div>
+          <div>
+            <%= form.email_field :email, placeholder: "メールアドレス", autofocus: true %>
+          </div>
+          <div>
+            <%= form.password_field :password, placeholder: "パスワード" %>
+          </div>
+          <div>
+            <%= form.check_box :remember_me %>
+            <%= form.label "ログイン状態を維持" %>
+          </div>
+        </div>
+        <div>
+          <%= form.submit "ログイン" %>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>

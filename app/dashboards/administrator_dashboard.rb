@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class DrinkingRecordDashboard < Administrate::BaseDashboard
+class AdministratorDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,12 +8,16 @@ class DrinkingRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo,
-    lemon_sour: Field::BelongsTo,
     id: Field::Number,
-    drinking_date: Field::Date,
-    pure_alcohol_amount: Field::Number.with_options(decimals: 2),
-    drinking_amount: Field::Number,
+    email: Field::String,
+    encrypted_password: Field::String,
+    name: Field::String,
+    remember_created_at: Field::DateTime,
+    sign_in_count: Field::Number,
+    current_sign_in_at: Field::DateTime,
+    last_sign_in_at: Field::DateTime,
+    current_sign_in_ip: Field::String.with_options(searchable: false),
+    last_sign_in_ip: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,21 +28,24 @@ class DrinkingRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i(
-    user
-    lemon_sour
     id
-    drinking_date
+    email
+    name
   ).freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i(
-    user
-    lemon_sour
     id
-    drinking_date
-    pure_alcohol_amount
-    drinking_amount
+    email
+    encrypted_password
+    name
+    remember_created_at
+    sign_in_count
+    current_sign_in_at
+    last_sign_in_at
+    current_sign_in_ip
+    last_sign_in_ip
     created_at
     updated_at
   ).freeze
@@ -47,11 +54,15 @@ class DrinkingRecordDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i(
-    user
-    lemon_sour
-    drinking_date
-    pure_alcohol_amount
-    drinking_amount
+    email
+    encrypted_password
+    name
+    remember_created_at
+    sign_in_count
+    current_sign_in_at
+    last_sign_in_at
+    current_sign_in_ip
+    last_sign_in_ip
   ).freeze
 
   # COLLECTION_FILTERS
@@ -66,10 +77,10 @@ class DrinkingRecordDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how drinking records are displayed
+  # Overwrite this method to customize how administrators are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(drinking_record)
-  #   "DrinkingRecord ##{drinking_record.id}"
+  # def display_resource(administrator)
+  #   "Administrator ##{administrator.id}"
   # end
 end

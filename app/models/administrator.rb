@@ -1,11 +1,7 @@
-# frozen_string_literal: true
-
-class Administrator < ActiveRecord::Base
+class Administrator < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :timeoutable, :validatable
-  include DeviseTokenAuth::Concerns::User
-
+         :trackable, :rememberable, :validatable
   validates :name, presence: true, uniqueness: true
 end

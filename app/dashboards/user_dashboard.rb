@@ -34,16 +34,16 @@ class UserDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
+  COLLECTION_ATTRIBUTES = %i(
     drinking_records
     id
     provider
     uid
-  ].freeze
+  ).freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = %i[
+  SHOW_PAGE_ATTRIBUTES = %i(
     drinking_records
     id
     provider
@@ -63,12 +63,12 @@ class UserDashboard < Administrate::BaseDashboard
     tokens
     created_at
     updated_at
-  ].freeze
+  ).freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
+  FORM_ATTRIBUTES = %i(
     drinking_records
     provider
     uid
@@ -85,7 +85,7 @@ class UserDashboard < Administrate::BaseDashboard
     user_image
     email
     tokens
-  ].freeze
+  ).freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
