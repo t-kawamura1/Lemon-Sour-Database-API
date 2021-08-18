@@ -2,29 +2,53 @@
 <html>
   <head>
     <title>管理者ログイン</title>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
+    <style>
+    .sign-in {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sign-in-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sign-in-input {
+      margin-bottom: 15px;
+    }
+    .sign-in-input input {
+      width: 200px;
+      height: 24px;
+    }
+    .sign-in-check-box {
+      margin-bottom: 30px;
+    }
+    .sign-in-button {
+      font-size: 16px;
+      padding: 3px 12px;
+      background-color: #616bff;
+      border: 1px solid #616bff;
+      color: white;
+      border-radius: 6px;
+    }
+    </style>
   </head>
   <body>
-    <div>
+    <div class="sign-in">
       <h2>管理者ログイン</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
-        <div>
-          <div>
+        <div class="sign-in-box">
+          <div class="sign-in-input">
             <%= form.email_field :email, placeholder: "メールアドレス", autofocus: true %>
           </div>
-          <div>
+          <div class="sign-in-input">
             <%= form.password_field :password, placeholder: "パスワード" %>
           </div>
-          <div>
+          <div class="sign-in-check-box">
             <%= form.check_box :remember_me %>
             <%= form.label "ログイン状態を維持" %>
           </div>
-        </div>
-        <div>
-          <%= form.submit "ログイン" %>
+          <%= form.submit "ログイン", class: "sign-in-button" %>
         </div>
       <% end %>
     </div>
