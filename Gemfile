@@ -16,12 +16,12 @@ gem 'devise'
 gem 'devise_token_auth'
 gem 'administrate'
 gem 'activerecord-session_store'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'rubocop-airbnb'
   gem 'bullet'
 end
