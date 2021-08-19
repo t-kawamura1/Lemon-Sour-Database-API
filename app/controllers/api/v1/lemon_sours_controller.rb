@@ -13,15 +13,9 @@ class Api::V1::LemonSoursController < ApplicationController
   # def create
   #   lemon_sour = LemonSour.new(lemon_sour_params)
   #   if lemon_sour.save
-  #     render json: {
-  #       status: 200,
-  #       data: lemon_sour,
-  #     }
+  #     render json: lemon_sour, status: :ok
   #   else
-  #     render json: {
-  #       status: 'ERROR',
-  #       data: lemon_sour.errors,
-  #     }
+  #     render json: lemon_sour.errors.full_messages, status: :unprocessable_entity
   #   end
   # end
 

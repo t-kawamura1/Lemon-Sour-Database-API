@@ -14,6 +14,8 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'devise'
 gem 'devise_token_auth'
+gem 'administrate'
+gem 'activerecord-session_store'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

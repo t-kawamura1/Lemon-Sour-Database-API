@@ -24,7 +24,7 @@ module App
     config.beginning_of_week = :monday
     config.i18n.default_locale = :ja
     config.add_autoload_paths_to_load_path = false
-    config.api_only = true
+    config.api_only = false
 
     config.generators do |g|
       g.test_framework :rspec,
@@ -32,5 +32,9 @@ module App
         helper_specs: false,
         routing_specs: false
     end
+
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ::Rack::MethodOverride
   end
 end

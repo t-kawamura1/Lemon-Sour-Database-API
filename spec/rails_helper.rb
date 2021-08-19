@@ -62,10 +62,10 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # テスト中のFactoryBot表記省略のため
-  config.include FactoryBot::Syntax::Methods
-
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+  config.include FactoryBot::Syntax::Methods
+  config.include RequestSpecHelper, type: :request
 
   Faker::Config.locale = :ja
 

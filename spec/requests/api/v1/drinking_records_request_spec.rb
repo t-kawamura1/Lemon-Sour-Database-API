@@ -43,7 +43,6 @@ RSpec.describe "Api::v1::DrinkingRecords", type: :request do
           get("/api/v1/drinking_records/amounts_by_month", headers: headers)
           json = JSON.parse(response.body)
           expect(response.status).to eq 200
-          p json
           expect(json.length).to eq 2
           expect(json[0]["year_month"]).to eq "2021-08"
           expect(json[1]["year_month"]).to eq "2021-09"
