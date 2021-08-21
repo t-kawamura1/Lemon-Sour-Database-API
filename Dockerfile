@@ -1,7 +1,8 @@
 FROM ruby:2.7.3
 
 ENV LANG=C.UTF-8 \
-    TZ=Asia/Tokyo
+    TZ=Asia/Tokyo \
+    FRONT_DOMAIN=${FRONT_DOMAIN}
 
 RUN apt-get update -qq && apt-get install -y postgresql-client
 WORKDIR /app
