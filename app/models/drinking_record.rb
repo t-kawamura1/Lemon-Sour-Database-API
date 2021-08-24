@@ -8,7 +8,8 @@ class DrinkingRecord < ApplicationRecord
 
   scope :total_pure_alcohol_by_date, -> {
     group(:drinking_date).
-      select("drinking_date, SUM(pure_alcohol_amount) AS total_pure_alcohol, SUM(drinking_amount) AS total_drinking")
+      select("drinking_date, SUM(pure_alcohol_amount) AS total_pure_alcohol, SUM(drinking_amount) AS total_drinking").
+      order(drinking_date: :asc)
   }
 
   scope :pure_alcohol_amount_specified, ->(amount) {

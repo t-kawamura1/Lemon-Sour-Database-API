@@ -1,4 +1,5 @@
 class Api::V1::DrinkingRecordsController < ApplicationController
+  before_action :authenticate_api_v1_user!
 
   LOWER_LIMIT_AMOUNT = 0
   SAFETY_AMOUNT = 20

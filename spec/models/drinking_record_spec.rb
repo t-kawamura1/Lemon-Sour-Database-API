@@ -46,11 +46,13 @@ RSpec.describe DrinkingRecord, type: :model do
     let!(:rec_20210807)             { create(:drinking_record, drinking_date: "2021-08-07", lemon_sour_id: kodawari.id) }
     let!(:rec_20210808_alcohol25)   { create(:drinking_record, drinking_date: "2021-08-08", pure_alcohol_amount: 28.5, lemon_sour_id: kodawari.id) }
     let!(:rec_20210808)             { create(:drinking_record, drinking_date: "2021-08-08", lemon_sour_id: zeitaku.id) }
+    let!(:rec_20210809)             { create(:drinking_record, drinking_date: "2021-08-09", pure_alcohol_amount: 0, lemon_sour_id: strong.id) }
+    let!(:rec_20210810)             { create(:drinking_record, drinking_date: "2021-08-10", pure_alcohol_amount: 0, lemon_sour_id: strong.id) }
 
     context ":total_pure_alcohol_by_dateの場合" do
       it "飲んだ日付ごとに純アルコール量と飲酒量が合算され、飲んだ日付の昇順でデータを取得する" do
         result = DrinkingRecord.total_pure_alcohol_by_date
-        expect(result.length).to eq 6
+        expect(result.length).to eq 8
         expect(result[0].drinking_date.strftime("%Y-%m-%d")).to eq "2021-08-03"
         expect(result[5].drinking_date.strftime("%Y-%m-%d")).to eq "2021-08-08"
         expect(result[0].total_drinking).to eq 850
@@ -58,9 +60,18 @@ RSpec.describe DrinkingRecord, type: :model do
       end
     end
 
-    context ":pure_alcohol_amount_less_thanの場合" do
-      it ":total_pure_alcohol_by_dateの条件に加え、純アルコール量が引数より少ないデータを取得する" do
-        result = DrinkingRecord.pure_alcohol_amount_less_than(20)
+    context ":pure_alcohol_amount_specifiedの場合" do
+      it ":total_pure_alcohol_by_dateの条件に加え、引数に指定された純アルコール量のデータを取得する" do
+        result = DrinkingRecord.pure_alcohol_amount_specified(0)
+        expect(result.length).to eq 2
+        expect(result[0].drinking_date.strftime("%Y-%m-%d")).to eq "2021-08-09"
+        expect(result[1].drinking_date.strftime("%Y-%m-%d")).to eq "2021-08-10"
+      end
+    end
+
+    context ":pure_alcohol_amount_greater_than_and_less_thanの場合" do
+      it ":total_pure_alcohol_by_dateの条件に加え、純アルコール量が第一引数より大きく、第二引数より少ないデータを取得する" do
+        result = DrinkingRecord.pure_alcohol_amount_greater_than_and_less_than(0, 20)
         expect(result.length).to eq 2
         expect(result[0].drinking_date.strftime("%Y-%m-%d")).to eq "2021-08-04"
         expect(result[1].drinking_date.strftime("%Y-%m-%d")).to eq "2021-08-07"
@@ -103,7 +114,7 @@ RSpec.describe DrinkingRecord, type: :model do
         expect(result.length).to eq 2
         expect(result[0].year_month).to eq "2021-08"
         expect(result[1].year_month).to eq "2021-09"
-        expect(result[0].total_drinking).to eq 4350
+        expect(result[0].total_drinking).to eq 5350
         expect(result[1].total_pure_alcohol).to eq 25
       end
     end
