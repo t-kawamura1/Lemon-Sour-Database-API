@@ -6,6 +6,7 @@ RSpec.describe "Api::v1::DrinkingRecords", type: :request do
   let!(:hyoketu)  { create(:lemon_sour) }
   let!(:kodawari) { create(:lemon_sour, name: "こだわり") }
   let!(:strong)   { create(:lemon_sour, :zero_sugar_sour) }
+  let!(:rec_20210801) { create(:drinking_record, drinking_date: "2021-08-01", pure_alcohol_amount: 0, lemon_sour_id: hyoketu.id, user_id: current_user.id) }
   let!(:rec_20210803) { create(:drinking_record, lemon_sour_id: hyoketu.id, user_id: current_user.id) }
   let!(:rec_20210804) { create(:drinking_record, drinking_date: "2021-08-04", pure_alcohol_amount: 21, lemon_sour_id: kodawari.id, user_id: current_user.id) }
   let!(:rec_20210907) { create(:drinking_record, drinking_date: "2021-09-07", pure_alcohol_amount: 41, lemon_sour_id: strong.id, user_id: current_user.id) }
@@ -18,11 +19,12 @@ RSpec.describe "Api::v1::DrinkingRecords", type: :request do
         get("/api/v1/drinking_records/#{current_user.id}", headers: headers)
         json = JSON.parse(response.body)
         expect(response.status).to eq 200
-        expect(json.length).to eq 4
-        expect(json[0][0]["total_pure_alcohol"]).to eq 12.5
-        expect(json[1][0]["total_pure_alcohol"]).to eq 21
-        expect(json[2][0]["total_pure_alcohol"]).to eq 41
-        expect(json[3].length).to eq 3
+        expect(json.length).to eq 5
+        expect(json[0][0]["total_pure_alcohol"]).to eq 0
+        expect(json[1][0]["total_pure_alcohol"]).to eq 12.5
+        expect(json[2][0]["total_pure_alcohol"]).to eq 21
+        expect(json[3][0]["total_pure_alcohol"]).to eq 41
+        expect(json[4].length).to eq 3
       end
     end
 
@@ -122,8 +124,8 @@ RSpec.describe "Api::v1::DrinkingRecords", type: :request do
           delete("/api/v1/drinking_records/delete", params: params, headers: headers)
           json = JSON.parse(response.body)
           expect(response.status).to eq 200
-          expect(json.length).to eq 3
-          expect(json[1].length).to eq 0
+          expect(json.length).to eq 4
+          expect(json[2].length).to eq 0
         end
       end
 

@@ -1,6 +1,7 @@
 class Api::V1::DrinkingRecordsController < ApplicationController
   before_action :authenticate_api_v1_user!
 
+  LOWER_LIMIT_AMOUNT = 0
   SAFETY_AMOUNT = 20
   WARNING_AMOUNT = 40
   MAX_COUNT_TO_DISPLAY = 5
@@ -9,9 +10,10 @@ class Api::V1::DrinkingRecordsController < ApplicationController
     get_drinking_records_by_date_and_amount_of_pure_alcohol
     @records_of_sour_name = current_api_v1_user.drinking_records.count_sour_name(MAX_COUNT_TO_DISPLAY)
     render json: [
+      @records_of_zero,
       @records_of_safety,
       @records_of_warning,
-      @records_of_dagerous,
+      @records_of_dangerous,
       @records_of_sour_name,
     ],
            status: :ok
@@ -37,9 +39,10 @@ class Api::V1::DrinkingRecordsController < ApplicationController
       @drinking_records.destroy_all
       get_drinking_records_by_date_and_amount_of_pure_alcohol
       render json: [
+        @records_of_zero,
         @records_of_safety,
         @records_of_warning,
-        @records_of_dagerous,
+        @records_of_dangerous,
       ], status: :ok
     else
       render json: { error_message: "該当する記録がありません" }, status: :not_found
@@ -49,9 +52,10 @@ class Api::V1::DrinkingRecordsController < ApplicationController
   private
 
   def get_drinking_records_by_date_and_amount_of_pure_alcohol
-    @records_of_safety = current_api_v1_user.drinking_records.pure_alcohol_amount_less_than(SAFETY_AMOUNT)
+    @records_of_zero = current_api_v1_user.drinking_records.pure_alcohol_amount_specified(LOWER_LIMIT_AMOUNT)
+    @records_of_safety = current_api_v1_user.drinking_records.pure_alcohol_amount_greater_than_and_less_than(LOWER_LIMIT_AMOUNT, SAFETY_AMOUNT)
     @records_of_warning = current_api_v1_user.drinking_records.pure_alcohol_amount_between(SAFETY_AMOUNT, WARNING_AMOUNT)
-    @records_of_dagerous = current_api_v1_user.drinking_records.pure_alcohol_amount_or_more(WARNING_AMOUNT)
+    @records_of_dangerous = current_api_v1_user.drinking_records.pure_alcohol_amount_or_more(WARNING_AMOUNT)
   end
 
   def drinking_record_params
