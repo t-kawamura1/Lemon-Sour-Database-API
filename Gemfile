@@ -17,6 +17,7 @@ gem 'devise_token_auth'
 gem 'administrate'
 gem 'activerecord-session_store'
 gem 'faker'
+gem 'seed-fu'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -303,6 +303,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selectize-rails (0.12.6)
     sinatra (2.1.0)
       mustermann (~> 1.0)
@@ -373,6 +376,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.7)
   rspec-rails (~> 4.0.0)
   rubocop-airbnb
+  seed-fu
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
