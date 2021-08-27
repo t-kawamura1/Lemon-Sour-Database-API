@@ -1,6 +1,6 @@
 Administrator.create!(
   id: 1,
   name: "レモンサワーの神",
-  email: "admin@god.jp",
-  password: "godpassword",
+  email: ENV['ADMIN_EMAIL'],
+  password: ENV['ADMIN_PASSWORD'],
 )
