@@ -10,15 +10,6 @@ class Api::V1::LemonSoursController < ApplicationController
     render json: @lemon_sours, status: :ok
   end
 
-  # def create
-  #   lemon_sour = LemonSour.new(lemon_sour_params)
-  #   if lemon_sour.save
-  #     render json: lemon_sour, status: :ok
-  #   else
-  #     render json: lemon_sour.errors.full_messages, status: :unprocessable_entity
-  #   end
-  # end
-
   def search_by
     lemon_sours = LemonSour.displayed_based_on(search_sours_params)
     if lemon_sours != []
