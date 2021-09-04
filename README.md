@@ -1,24 +1,23 @@
-# README
+# Lemon Sour DB API
+Thanks for visiting!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The source code of the following site is placed here.
 
-Things you may want to cover:
+→ [Lemon Sour DB API](https://lsdb-back.work)
 
-* Ruby version
+This URI is a site for administrators.
+Please don't prank :)
 
-* System dependencies
+## Features to implement down the road
+- [ ] A Lemon sour suggestion that suits the mood of the day
+- [ ] Pagination
+- [ ] Word-of-mouths
+- [ ] Reviews
+- [ ] Addition to favorites
+- [ ] Tasting charts  Cooperation with the map
+- [ ] Cooperation with the map
+- [ ] OmniAuth
+- [ ] Switching display mode
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Author
+Tomoyuki Kawamura
