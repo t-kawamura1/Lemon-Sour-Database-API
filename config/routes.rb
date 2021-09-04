@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/' => redirect('/administrators/sign_in')
+
   devise_for :administrators, controllers: {
     sessions: 'administrators/sessions',
   }
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
           delete 'delete'
         end
       end
+      get :health_check, to: 'health_check#index'
     end
   end
 end

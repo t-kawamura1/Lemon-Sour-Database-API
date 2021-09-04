@@ -8,9 +8,10 @@ csv.each do |lemon_sour|
     s.manufacturer = lemon_sour[2]
     s.calories = lemon_sour[3]
     s.alcohol_content = lemon_sour[4]
-    s.fruit_juice = lemon_sour[5]
-    s.zero_sugar = lemon_sour[6]
-    s.zero_sweetener = lemon_sour[7]
-    s.sour_image = lemon_sour[8]
+    s.pure_alcohol = lemon_sour[5]
+    s.fruit_juice = lemon_sour[6]
+    s.zero_sugar = lemon_sour[7]
+    s.zero_sweetener = lemon_sour[8]
+    s.sour_image = lemon_sour[9]
   end
 end
