@@ -1,3 +1,53 @@
-1,キリン・ザ・ストロング 麒麟特性レモンサワー,キリン,54,9,2.1,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/development/kirin_tokusei.jpg
-2,こだわり酒場のレモンサワー 追い足しレモン,サントリー,32,5,1.6,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/development/suntory_kodawari_oitasi.jpg
-3,ザ・レモンクラフト 地中海レモン,アサヒ,36,5,2,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/development/asahi_craft_tityukai.jpg
+1,ザ・レモンクラフト　極上レモン,アサヒ,52,7,19.6,1,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_craft_gokujo.jpg
+2,ザ・レモンクラフト　グリーンレモン,アサヒ,45,7,19.6,1,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_craft_green.jpg
+3,ザ・レモンクラフト　地中海レモン,アサヒ,36,5,14,2,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_craft_tityukai.jpg
+4,クリアクーラー　シチリア産レモン,アサヒ,54,6,16.8,3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_crearcooler.jpg
+5,チューハイハイリキレモン,アサヒ,51,7,19.6,4.3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_hiriki.jpg
+6,もぎたてSTRONG　まるごと搾りレモン ,アサヒ,65,9,25.2,3,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_mogitate.jpg
+7,Slat　レモンスカッシュサワー ,アサヒ,20,3,8.4,,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_slat.jpg
+8,樽ハイ倶楽部,アサヒ,60,8,22.4,1,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_taruhai.jpg
+9,贅沢絞りレモン,アサヒ,39,4,11.2,14,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/asahi/asahi_zeitaku.jpg
+10,発酵レモンサワー,キリン,51,7,19.6,10,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hakko.jpg
+11,本絞り レモンすっきり絞り,キリン,38,6,16.8,10,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_honsibori_sukkirisibori.jpg
+12,本搾り レモン,キリン,38,6,16.8,12,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_honsibori.jpg
+13,氷結　無糖レモンAlc.4%,キリン,26,4,11.2,2.7,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu_4.jpg
+14,氷結　無糖レモンAlc.7%,キリン,43,7,19.6,3.4,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu_7.jpg
+15,氷結　サワーレモン,キリン,33,4,11.2,4,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu_sour.jpg
+16,氷結ストロング　サワーレモン,キリン,43,7,19.6,1,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu_strong_sour.jpg
+17,氷結ストロング　シチリア産レモン,キリン,54,9,25.2,2.6,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu_strong.jpg
+18,氷結ZERO　シチリア産レモン,キリン,32,5,14,4.2,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu_zero.jpg
+19,氷結　シチリア産レモン,キリン,45,5,14,2.7,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_hyoketu.jpg
+20,麹レモンサワー,キリン,43,7,19.6,0.5,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_koji.jpg
+21,キリン・ザ・ストロング　麒麟特性レモンサワー,キリン,54,9,25.2,2.1,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/kirin/kirin_tokusei.jpg
+22,檸檬堂　はちみつレモン,コカ・コーラ,47,3,8.4,7,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_lemondo_hatimitu.jpg
+23,檸檬堂　カミソリレモン,コカ・コーラ,55,9,25.2,9,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_lemondo_kamisori.jpg
+24,檸檬堂　鬼レモン,コカ・コーラ,80,9,25.2,17,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_lemondo_oni.jpg
+25,檸檬堂　塩レモン,コカ・コーラ,58,7,19.6,7,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_lemondo_sio.jpg
+26,檸檬堂　定番レモン,コカ・コーラ,48,5,14,10,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_lemondo_teiban.jpg
+27,ノメルズ ハードレモネード　オリジナル,コカ・コーラ,58,5,14,20,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_nomels5_original.jpg
+28,ノメルズ ハードレモネード　サワー！サワー！サワー！,コカ・コーラ,54,5,14,14,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_nomels_sour3.jpg
+29,ノメルズ ハードレモネード　ビターサワー,コカ・コーラ,61,7,19.6,8,false,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/cocacola/cocacola_nomels7_bitter.jpg
+30,チューハイ99.99　クリアレモン,サッポロ,60,9,25.2,0.1,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_9999.jpg
+31,金のレモンサワー,サッポロ,55,6,16.8,10,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_kin.jpg
+32,キレートレモンサワー,サッポロ,57,5,14,20,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_kireto.jpg
+33,濃いめのレモンサワー,サッポロ,43,7,19.6,1,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_koime.jpg
+34,レモン・ザ・リッチ　神レモン,サッポロ,70,7,19.6,3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_rich_kami.jpg
+35,レモン・ザ・リッチ　苦旨レモン,サッポロ,52,5,14,3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_rich_nigauma.jpg
+36,レモン・ザ・リッチ　特製レモン,サッポロ,54,5,14,3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_rich_tokusei.jpg
+37,レモン・ザ・リッチ　旨塩レモン,サッポロ,53,5,14,3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_rich_umasio.jpg
+38,WATER SOUR　レモン,サッポロ,19,3,8.4,0.3,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/sapporo/sapporo_watersour.jpg
+39,-196℃　ザ・まるごとレモン,サントリー,44,7,19.6,3,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_196_marugoto.jpg
+40,-196℃ ストロングゼロ　ビターレモン,サントリー,53,9,25.2,,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_196_strong_bitter.jpg
+41,-196℃ ストロングゼロ　ダブルレモン,サントリー,54,9,25.2,3,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_196_strong.jpg
+42,こだわり酒場のレモンサワー　夏の塩レモン,サントリー,37,6,16.8,,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_kodawari_notunosio.jpg
+43,こだわり酒場のレモンサワー　追い足しレモン,サントリー,32,5,14,1.6,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_kodawari_oitasi.jpg
+44,こだわり酒場のレモンサワー　キリッと男前,サントリー,55,9,25.2,,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_kodawari_otokomae.jpg
+45,こだわり酒場のレモンサワー,サントリー,42,7,19.6,,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_kodawari.jpg
+46,鏡月焼酎ハイ,サントリー,41,7,19.6,1.5,true,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/suntory/suntory_kyogetu.jpg
+47,タカラcanチューハイ　レモン,宝酒造,57,8,22.4,3.3,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_can.jpg
+48,極上レモンサワー　すっきり定番レモン,宝酒造,42,7,19.6,0.5,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_gokujo_festival.jpg
+49,極上レモンサワー　丸おろしレモン,宝酒造,55,7,19.6,11,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_gokujo_maruorosi.jpg
+50,極上レモンサワー　瀬戸内レモン,宝酒造,43,7,19.6,0.1,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_gokujo_setouti.jpg
+51,極上レモンサワー　熟成つけ込みレモン,宝酒造,60,7,19.6,8,false,false,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_gokujo_tukekomi.jpg
+52,焼酎ハイボール　前割りレモン,宝酒造,29,5,14,1.5,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_shotyu_maewari.jpg
+53,焼酎ハイボール　レモン,宝酒造,42,7,19.6,1.5,true,true,https://lsdb-images.s3.ap-northeast-1.amazonaws.com/uploads/lemon_sour/production/takara/takara_shotyu.jpg

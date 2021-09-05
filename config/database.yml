@@ -22,7 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: <%= ENV["POSTGRES_PASSWORD"] %>
-  host: db
+  host: <%= ENV['DATABASE_HOST'] || 'db' %>
 
 development:
   <<: *default
@@ -88,3 +88,5 @@ production:
   database: app_production
   username: app
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  host: <%= ENV['DATABASE_HOST'] || 'db' %>
