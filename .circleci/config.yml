@@ -58,6 +58,7 @@ jobs:
           repo: "lsdb-api"
           tag: "${CIRCLE_SHA1}"
           profile-name: "god_of_lemon_sour"
+          region: AWS_REGION
 
   # deploy:
   #   executor: heroku/default
@@ -88,4 +89,4 @@ workflows:
           service-name: "lsdb-service-api"
           cluster-name: "lsdb-cluster-front"
           container-image-name-updates: "container=lsdb-container-api,tag=${CIRCLE_SHA1}"
-
+          aws-region: AWS_REGION
