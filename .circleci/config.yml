@@ -2,7 +2,8 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@1.1.3
-  heroku: circleci/heroku@1.2.6
+  aws-ecr: circleci/aws-ecr@7.2.0
+  # heroku: circleci/heroku@1.2.6
 
 commands:
   setup:
@@ -46,12 +47,22 @@ jobs:
           name: RSpec
           command: bundle exec rspec
 
-  deploy:
-    executor: heroku/default
+  build_and_push_image:
     steps:
       - checkout
-      - heroku/install
-      - heroku/deploy-via-git
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ACCOUNT_URL
+          repo: "lsdb-api"
+          region: AWS_REGION
+          tag: "${CIRCLE_SHA1}"
+          path: ./api/
+
+  # deploy:
+  #   executor: heroku/default
+  #   steps:
+  #     - checkout
+  #     - heroku/install
+  #     - heroku/deploy-via-git
 
 workflows:
   version: 2
@@ -65,7 +76,7 @@ workflows:
       - test:
           requires:
             - build
-      - deploy:
+      - build_and_push_image:
           requires:
             - test
 
