@@ -53,11 +53,11 @@ jobs:
     steps:
       - checkout
       - aws-ecr/build-and-push-image:
-          account-url: ${AWS_ACCOUNT_URL}
+          account-url: AWS_ACCOUNT_URL
           repo: "lsdb-api"
           tag: "${CIRCLE_SHA1}"
           path: ./api/
-          profile-name: ${AWS_USER_NAME}
+          profile-name: "god_of_lemon_sour"
 
   # deploy:
   #   executor: heroku/default
