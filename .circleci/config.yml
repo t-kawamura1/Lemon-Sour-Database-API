@@ -55,7 +55,6 @@ jobs:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ACCOUNT_URL
           repo: "lsdb-api"
-          region: AWS_REGION
           tag: "${CIRCLE_SHA1}"
           path: ./api/
           profile-name: AWS_USER_NAME
