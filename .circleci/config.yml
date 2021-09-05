@@ -57,7 +57,6 @@ jobs:
           account-url: AWS_ACCOUNT_URL
           repo: "lsdb-api"
           tag: "${CIRCLE_SHA1}"
-          profile-name: "god_of_lemon_sour"
           region: AWS_REGION
 
   # deploy:
