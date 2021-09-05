@@ -58,6 +58,7 @@ jobs:
           region: AWS_REGION
           tag: "${CIRCLE_SHA1}"
           path: ./api/
+          profile-name: AWS_USER_NAME
 
   # deploy:
   #   executor: heroku/default
